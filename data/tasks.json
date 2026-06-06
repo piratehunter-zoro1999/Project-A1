@@ -2,27 +2,22 @@
     "tasks": [
         {
             "id": 1,
+            "title": "DSA",
+            "status": "completed"
+        },
+        {
+            "id": 2,
             "title": "running",
             "status": "pending"
         },
         {
             "id": 3,
-            "title": "protien",
-            "status": "completed"
+            "title": "gym",
+            "status": "pending"
         },
         {
             "id": 4,
-            "title": null,
-            "status": "pending"
-        },
-        {
-            "id": 5,
-            "title": null,
-            "status": "pending"
-        },
-        {
-            "id": 6,
-            "title": "DSA",
+            "title": "exam study",
             "status": "pending"
         }
     ]

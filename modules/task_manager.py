@@ -12,6 +12,11 @@ def save_tasks(data):
 
 
 def add_task(title):
+
+    if not title:
+        print("Title cannot be empty!")
+        return
+    
     data = load_tasks() # data => dict
     tasks = data["tasks"]
     
@@ -40,7 +45,7 @@ def show_tasks():
     else:
         for task in tasks :
          print(
-            "ID:",task["id"],
+            "\nID:",task["id"],
             "\nTitle:",task["title"],
             "\nStatus:",task["status"]
               )
