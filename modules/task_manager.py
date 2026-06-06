@@ -63,7 +63,24 @@ def complete_task(ID):
         return    
     save_tasks(data)
 
+def delete_task(ID):
+    data = load_tasks()
+    tasks = data["tasks"]
+
+    found = False
+
+    for task in tasks:
+         if task["id"] == ID:
+             tasks.remove(task)
+             found = True
+             break
+
+    if not found:
+        print("task with ID",ID,"not found!")
+        return     
     
+    save_tasks(data)
+
     
 
 
