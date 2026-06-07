@@ -13,11 +13,16 @@
         {
             "id": 3,
             "title": "gym",
-            "status": "pending"
+            "status": "completed"
         },
         {
             "id": 4,
             "title": "exam study",
+            "status": "pending"
+        },
+        {
+            "id": 5,
+            "title": "drink water",
             "status": "pending"
         }
     ]
