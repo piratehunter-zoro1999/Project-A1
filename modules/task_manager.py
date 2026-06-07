@@ -35,22 +35,44 @@ def add_task(title):
     save_tasks(data)    
 
 
-def show_tasks():
+def show_tasks(filter=None):
+
     data = load_tasks()
     
     tasks = data["tasks"]
 
+    found = False
     if len(tasks) == 0:
         print("no tasks yet!")
-    else:
+        return
+    
+    elif filter is None:
         for task in tasks :
-         print(
+          found = True
+          print(
             "\nID:",task["id"],
             "\nTitle:",task["title"],
             "\nStatus:",task["status"]
               )
-         print()
+          print()
+    else:
+        for task in tasks:
+            if task["status"] == filter:
+                found = True
+                print(
+            "\nID:",task["id"],
+            "\nTitle:",task["title"],
+            "\nStatus:",task["status"]
+              )
+                print()
+        
+        
+    if not found :
+         print("no",filter,"tasks found!")
+    
+   
 
+            
 
 
 def complete_task(ID):

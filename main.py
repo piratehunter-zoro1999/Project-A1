@@ -13,7 +13,11 @@ while True:
         continue
 
     if parts[0] == "show":
-        show_tasks()
+        if len(parts) == 1:
+          show_tasks()
+        else:
+          show_tasks(parts[1])    
+
     
     elif parts[0] == "add":
           if(len(parts) == 1):
@@ -37,7 +41,7 @@ while True:
         else:
             ID=int(parts[1])   
         delete_task(ID)
-        print("task dleted")
+        print("task deleted")
     
     elif parts[0] == "exit":
         print("A1 Terminated")
