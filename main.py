@@ -55,6 +55,9 @@ while True:
               complete
               help
               exit""")
+
+    elif parts[0] == "study":
+        show_study_mode()    
     else:
         print("unkown command. Try help :)")    
                    

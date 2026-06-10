@@ -25,5 +25,11 @@
             "title": "drink water",
             "status": "pending"
         }
+    ],
+
+    "study_mode": [
+        "DSA",
+        "SMS",
+        "gym"
     ]
 }

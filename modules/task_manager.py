@@ -1,6 +1,6 @@
 import json
 
-def load_tasks():
+def load_data():
     with open("data/tasks.json","r") as file:
         data = json.load(file)
 
@@ -17,7 +17,7 @@ def add_task(title):
         print("Title cannot be empty!")
         return
     
-    data = load_tasks() # data => dict
+    data = load_data() # data => dict
     tasks = data["tasks"]
     
     if(len(tasks) == 0):
@@ -37,7 +37,7 @@ def add_task(title):
 
 def show_tasks(filter=None):
 
-    data = load_tasks()
+    data = load_data()
     
     tasks = data["tasks"]
 
@@ -46,15 +46,16 @@ def show_tasks(filter=None):
         print("no tasks yet!")
         return
     
-    elif filter is None:
+    if filter is None:
         for task in tasks :
-          found = True
+          
           print(
             "\nID:",task["id"],
             "\nTitle:",task["title"],
             "\nStatus:",task["status"]
               )
           print()
+        return   
     else:
         for task in tasks:
             if task["status"] == filter:
@@ -76,7 +77,7 @@ def show_tasks(filter=None):
 
 
 def complete_task(ID):
-    data = load_tasks()
+    data = load_data()
     tasks = data["tasks"]
     
     found = False
@@ -85,13 +86,13 @@ def complete_task(ID):
             task["status"] = "completed"
             found = True
             break
-    if found == False:
+    if not found:
         print("task with ID",ID,"not found!")
         return    
     save_tasks(data)
 
 def delete_task(ID):
-    data = load_tasks()
+    data = load_data()
     tasks = data["tasks"]
 
     found = False
@@ -109,6 +110,25 @@ def delete_task(ID):
     save_tasks(data)
 
     
+def show_study_mode():
+
+    data = load_data()
+    study_tasks=data.get("study_mode",[])
+
+    if len(study_tasks) == 0:
+        print("No study items found!")
+        return
+    i=1
+    print("\nToday's Focus")
+    print("-" * 15)
+
+    for task in study_tasks:
+       print(f"{i}. {task}")
+       i += 1
+
+    print()
+
+
 
 
 
